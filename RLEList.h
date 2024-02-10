@@ -1,10 +1,6 @@
 //
 // Created by Egbaria Baraa on 01/01/2023.
 //
-
-#ifndef HW1_RLELIST_H
-#define HW1_RLELIST_H
-
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -150,4 +146,3 @@ RLEListResult RLEListMap(RLEList list, MapFunction map_function);
 
 
 
-#endif // HW1_RLELIST_H
