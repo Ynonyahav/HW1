@@ -1,7 +1,8 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
+            //change from  "type": "cppbuild",
+            "type": "process",
             "label": "C/C++: gcc.exe build active file",
             "command": "C:\\TDM-GCC-64\\bin\\gcc.exe",
             "args": [
@@ -15,7 +16,7 @@
                 "cwd": "${fileDirname}"
             },
             "problemMatcher": [
-                "$gcc"
+                // Remove the problematic line "$gcc"
             ],
             "group": {
                 "kind": "build",
