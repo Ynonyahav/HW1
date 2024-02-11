@@ -140,7 +140,7 @@ char* RLEListExportToString(RLEList list, RLEListResult* result){
         if(result!=NULL){
             *result=RLE_LIST_NULL_ARGUMENT;
         }
-        return NULL;
+        return NULL; 
     }
     RLEList ziped_list=RLEListCreate();
     ziped_list->appears=list->appears;
@@ -159,7 +159,7 @@ char* RLEListExportToString(RLEList list, RLEListResult* result){
         current_list= current_list->next;
         node_counter+=1;
     }
-    char *new_ziped_string=malloc(sizeof(char)*node_counter*3);
+    char *new_ziped_string=malloc(sizeof(char)*((node_counter*3) + 1));
     if(new_ziped_string==NULL){
         *result=RLE_LIST_OUT_OF_MEMORY;
         return NULL;
@@ -175,6 +175,7 @@ char* RLEListExportToString(RLEList list, RLEListResult* result){
         new_ziped_string[2+index_of_ziped_string]='\n';
         index_of_ziped_string+=3;
     }
+    new_ziped_string[index_of_ziped_string]='\0';
     result=RLE_LIST_SUCCESS;
     return new_ziped_string;
 }
@@ -192,12 +193,6 @@ RLEListResult RLEListMap(RLEList list, MapFunction map_function){
         current_node->symbol=map_function(current_node->symbol);
     }
     return RLE_LIST_SUCCESS;
-}
-
-
-int main(){
-    printf("all right");
-    return 0;
 }
 
 
