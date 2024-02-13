@@ -4,7 +4,6 @@
 
 #include "RLEList.h"
 #include <stdlib.h>
-
 struct RLEList_t {
     int appears;
     char symbol;
