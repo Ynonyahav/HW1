@@ -1,48 +1,43 @@
-#ifndef HW1_ASCIIARTTOOL_H
-#define HW1_ASCIIARTTOOL_H
+// .h class for functions
 
+#ifndef HW1_ASCIIART_H
+#define HW1_ASCIIART_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "../RLEList.h"
-
-
+#include "RLEList.h"
 
 /**
-* Ascii Art Tool
-*
-* Reads and writes pictures in the form of Ascii Art.
+* Run Length Encoding List
 *
 * The following functions are available:
-*   asciiArtRead              -Reads a given file and compresses it using RLE.
-*   asciiArtPrint             -Writes a picture shown in RLEList form into a file.
-*   asciiArtPrintEncoded      -Writes a compressed picture into a file.
+*   asciiArtRead	        - Read file into new RLEList .
+*   asciiArtPrint		    - write all the character in RLEList to file .
+*   asciiArtPrintEncoded    - wrte the ascii art in ziped way to the file.
 */
 
-
 /**
-* asciiArtRead: Reads a given file and compresses it using RLE
-*
-* @param in_stream - The file containing the desired picture.
-* @return
-*   A list of the type RLEList containing all the values in the picture.
+ * asciiArtRead : get file from user and convert the file to RLEList
+ * 
+ * this function use others function from RLEList.h to create a chain of nodes 
+ * and enter all the chars from to the file to the node
+ * @param in_stream file to read the ascii arrt from him
+ * @return
+ * -the function return NULL if allocate of node will fail
+ * -in case of succes, return pointer to RLEList, and the RLEList is nodes that contain
+ *  all the chars from file
 */
 RLEList asciiArtRead(FILE* in_stream);
 
-
 /**
-* asciiArtPrint: Prints a picture shown in RLEList form into a file
-*
-* @param list - The list of the type RLEList containing the values in the picture.
-* @param out_stream - The file to be written in.
-* @return
-*   RLE_LIST_NULL_ARGUMENT if a NULL was sent to the function as a list.
-*   RLE_LIST_OUT_OF_MEMORY if malloc fails.
-*   RLE_LIST_SUCCESS if the file has been written into successfully.
+ * asciiArtPrint : write RLEList that present ascii art to new file that given by the user
+ * @param RLEList that contain chars of  ascii art picture 
+ * @param out_stream that a pointer to the file that the RLEList will 
+ * @return RLEListResult that resamble:
+ *      -RLE_LIST_NULL_ARGUMENT if the pointer to list was NULL
+ *      -RLE_LIST_ERROR f the file pointer is NULL
+ *      -RLE_LIST_OUT_OF_MEMORY if allocate memory to ne 
+ *      -RLE_LIST_SUCCESS if all going right
 */
 RLEListResult asciiArtPrint(RLEList list, FILE *out_stream);
-
 
 /**
 * asciiArtPrintEncoded: Writes the compressed picture into a file.
@@ -55,4 +50,4 @@ RLEListResult asciiArtPrint(RLEList list, FILE *out_stream);
 */
 RLEListResult asciiArtPrintEncoded(RLEList list, FILE *out_stream);
 
-#endif //HW1_ASCIIARTTOOL_H
+#endif
